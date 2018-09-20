@@ -51,6 +51,7 @@ public class WideScreenReader extends Region {
 		
 		scrollBar = new ScrollBar();
 		scrollBar.setOrientation(Orientation.VERTICAL);
+		scrollBar.setMax(0.0);
 		
 		hbox.getChildren().addAll(textViewers);
 		hbox.getChildren().add(scrollBar);
