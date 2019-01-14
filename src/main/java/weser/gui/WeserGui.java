@@ -21,6 +21,8 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -28,14 +30,22 @@ import weser.gui.controls.WideScreenReader;
 
 public class WeserGui extends Application {
 
+	private TabPane tabPane;
+	
 	/* (non-Javadoc)
 	 * @see javafx.application.Application#start(javafx.stage.Stage)
 	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		BorderPane mainPane = new BorderPane();
-		WideScreenReader reader = new WideScreenReader();
-		mainPane.setCenter(reader);
+//		WideScreenReader reader = new WideScreenReader();
+		tabPane = new TabPane(); 
+		mainPane.setCenter(tabPane);
+		Tab tab = new Tab();
+		tab.setText("default Text");
+		tab.setContent(new WideScreenReader());
+		tabPane.getTabs().add(tab);
+		
 		mainPane.setTop(buildControlBar());
 		mainPane.setBottom(new Label("status"));
 		

@@ -39,6 +39,15 @@ public class WideScreenReader extends Region {
 	private List<TextFlow> textViewers;
 	private ScrollBar scrollBar;
 	
+	// just for development / testing
+	String text = "this is a very long text!\n"
+			+ "I need this one, to test the content of the TextFlow " 
+			+ "or derived component.\n\n"
+			+ "Can you give me some ideas how I can expand this senseless "
+			+ "speech over and over and talk senseless things, "
+			+ "just to fill up the component?\n"
+			+ "Any glue? Any Hint?\n"
+			+ "Maybe, that's enough for now.";
 	public WideScreenReader() {
 		buildComponent();
 	}
@@ -47,7 +56,7 @@ public class WideScreenReader extends Region {
 		textViewers = new ArrayList<>();
 		HBox hbox = new HBox(VGAP);
 		for (int i = 0; i < numOfColumns; i++) 
-			textViewers.add(new TextFlow(new Text("Hallo Welt")));
+			textViewers.add(new TextFlow(new Text(text)));
 		
 		scrollBar = new ScrollBar();
 		scrollBar.setOrientation(Orientation.VERTICAL);
